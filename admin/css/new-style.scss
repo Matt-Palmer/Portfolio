@@ -1,0 +1,264 @@
+*{
+    box-sizing: border-box;
+}
+
+.page-header{
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+#publish-options-container,
+#publish-options-outer-container,
+#category-options-container,
+#category-options-outer-container,
+{
+    padding-left: 0;
+
+}
+
+
+.view-images-form,
+.view-posts-form,
+.add-category-form{
+    width: 100%;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    padding: 0 10px 10px 10px;
+    
+
+    h6{
+        display: block;
+        width: 100%;
+        padding-top: 17px;
+        margin-left: 15px;
+    }
+
+    .form-control{
+        width: 100%;
+    }
+
+    #add-post,
+    #apply-bulk,
+    #add-image,
+    #add-category,
+    #delete-categories{
+        margin: 0px 15px;
+        width: 100%;
+    }
+
+    #add-image,
+    #add-post,
+    #delete-categories{
+        margin-top: 10px;
+    }
+
+}
+
+#add-image-form,
+#add-post-form{
+    width: 100%;
+    background-color: #f7f7f7;
+    padding: 10px 10px 0 10px;
+    border-radius: 8px;
+
+    #image-select{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    #publish-post,
+    #add-image{
+        width: 100%;
+    }
+}
+
+.table-container{
+    overflow-x: scroll;
+}
+
+.gallery_image{
+    width: 100px;
+    margin: auto;
+}
+
+.img-container{
+    text-align: center;
+}
+
+.table{
+    margin-top: 16px;
+    width: auto;
+    
+    &:table-bordered{
+        border-radius: 8px;
+    }
+
+    .image-container{
+        width: 200px;
+        padding: 5px;
+        border: 1px solid lightgray;
+        border-radius: 8px;
+
+        img{
+            max-width: 100%;
+            border-radius: 8px;
+        }
+    }
+}
+
+
+
+
+#template-choices{
+    .image-container{
+        height: 200px;
+    }
+
+    .img-placeholder{
+        background-color: gray;
+    }
+}
+
+#user-info{
+    position: absolute;
+    right: 0;
+
+    .dropdown-menu{
+        position: absolute;
+        left: -110px;
+    }
+}
+
+.card{
+    width: auto;
+    max-width: 100%;
+    margin-bottom: 5px;
+    .image-container{
+        padding: 5px;
+        
+        
+        .inner-container{
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+
+        .wide-image{
+            width: 55%;
+            height: 50%;
+            background-color: gray;
+        }
+
+        .left-align{
+            float: left;
+        }
+
+        .right-align{
+            float: right;
+        }
+
+        .image{
+            width: 50%;
+            height: 50%;
+            background-color: lightgray;
+        }
+
+        img{
+            width: 100%;
+            height: 100%;
+        }
+
+        .third{
+            width: 33.3%;
+            height: 33.3%;
+            
+            &:nth-child(odd){
+                background-color: gray;
+            }
+
+            &:nth-child(even){
+                background-color: lightgray;
+            }
+        }
+
+        
+        
+    }
+}
+
+.chart{
+    height: 300px;
+}
+
+.second_graph_padding_top{
+    padding-top: 16px;
+}
+
+
+@media only screen and (min-width: 768px) {
+
+    .view-images-form,
+    .view-posts-form,
+    .add-category-form{
+        
+        width: 425px;
+
+        .form-control{
+            width: 405px;
+        }
+
+        #add-post,
+        #apply-bulk,
+        #add-image,
+        #add-category,
+        #delete-categories{
+            width: 200px;
+        }
+
+        #apply-bulk,
+        #add-category{
+            margin-right: 5px;
+        }
+
+        #add-post,
+        #add-image,
+        #delete-categories{
+            margin-top: 0;
+            margin-left: 0;
+        }
+    }
+
+    #add-image-form,
+    #add-post-form{
+
+        #publish-post,
+        #add-image{
+           width: 200px;
+        }
+
+    }
+
+   #add-image-form{
+       .form-control{
+           width: 405px;
+       }
+   }
+
+}
+
+@media only screen and (min-width: 992px) {
+
+    .second_graph_padding_top{
+        padding-top: 0;
+    }
+    
+}
+
+@media only screen and (min-width: 1200px) {
+    
+
+    
+}
