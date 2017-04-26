@@ -1,0 +1,697 @@
+ /*
+(1) VARIABLES
+(2) BODY AND HTML
+(3) NAVIGATION
+(4) PAGE CONTENT
+(5) BUTTONS
+(6) POST AND GALLERY CARDS
+(7) POST.PHP PAGE
+*/
+
+
+/*(1) VARIABLES START*/
+
+    $main-bg: white;
+    $main_nav_color: white;
+    $active-link: #03113D;
+    $text: #03113D;
+
+/*(1) VARIABLES END*/
+
+
+/*(2) BODY AND HTML START*/
+
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    } 
+
+    body, html{
+        background-color: $main-bg;
+        z-index: -2;
+    }
+
+/*(2) BODY AND HTML START*/
+
+
+/*(3) NAVIGATION START*/
+
+    .nav-container{
+        position: fixed;
+        top: 0;
+        background-color: $main_nav_color;
+        color: 	$text;
+        width: 100%;
+        height: 75px;
+        border-bottom: 1px solid #03113D;
+        z-index: 99;
+        
+        #my-logo{
+            h1{
+                text-align: center;
+                line-height: 50px;
+                font-size: 1.7rem;
+                width: 200px;
+                height: 50px;
+                margin: 12px auto 0;
+
+                a{
+                    text-decoration: none;
+                    color: $active-link;
+                }
+            }
+        }
+
+        .nav-btn{
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: 3px;
+            top: 50%;
+            transform: translate(-40%, -40%);
+
+            .hamburger-container{
+                width: 20px;
+                height: 2px;
+                background-color: 	$text;
+                border-radius:5px;
+                position:relative;
+                text-align: left;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                &:before,
+                &:after{
+                    content: '';
+                    width: 100%;
+                    height: 2px;
+                    background-color:	$text;
+                    position:absolute;
+                    border-radius:5px;
+                }
+
+                &:before{
+                    top: -6px;
+                }
+
+                &:after{
+                    top: 6px;
+                }
+            }
+            
+        }
+
+        .prev-page{
+
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left: 10px;
+            top: 35%;
+            text-align: center;
+            color: $active-link;
+        }
+
+        .nav-content-container{
+            position: absolute;
+            top: 0;
+            left: -270px;
+            width: 270px;
+            height: 100vh;
+            border-right: 1px solid 	$text;
+            background-color: $main_nav_color;
+            transition: all 0.5s;
+
+            &.open{
+                left: 0;
+            }
+
+            .nav-items-container{
+                position: absolute;
+                width: 100%;
+                top: 100px;
+
+                ul{
+                    list-style-type: none;
+                    border-top: 1px solid 	$text;
+                    li{
+                        a{
+                            display: block;
+                            padding: 15px 10px;
+                            text-decoration: none;
+                            color: 	$text;
+                            border-bottom: 1px solid $text;
+                            font-weight: bold;
+                            text-transform: uppercase;
+
+                            &.active{
+                                background-color: $active-link;
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .social-nav-items-container{
+                position: absolute;
+                width: 100%;
+                bottom: 50px;
+                padding-left: 8px;
+                ul{
+                    list-style-type: none;
+                    li{
+                        display: inline-block;
+                        width: 23%;
+                        a{
+                            display: block;
+                            padding: 20px 10px;
+                            text-align: center;
+                            color: 	$text;
+                            text-decoration: none;
+
+                            img{
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+/*(3) NAVIGATION END*/
+
+
+/*(4) PAGE CONTENT START*/
+
+    #home,
+    #posts-page,
+    #post-page,
+    #gallery-page,
+    #about-page,
+    #image-page{
+
+        .page-content{
+            margin-top: 95px;
+
+            h3{
+                margin-bottom: 20px;
+            }
+
+            #posts,
+            #albums,
+            #about-me{
+                padding: 0 10px;
+
+                p{
+                    text-align: justify;
+                }
+            }
+        }
+    }
+
+
+    #home,
+    #posts-page,
+    #post-page,
+    #gallery-page,
+    #about-page,
+    #image-page{
+
+        h3{
+            text-transform: uppercase;
+            display: inline-block;
+            text-decoration: underline;
+            font-weight: bold;
+            color: $active-link;
+        }
+
+        h4{
+            color: $active-link;
+        }
+
+        p{
+            text-align: justify;
+            color: $active-link;
+        }
+
+        .page-content{
+            text-align: center;
+            
+            .section-split{
+                width: 90%;
+                border-color: $active-link;
+                margin: 20px auto;
+            }
+
+            #welcome,
+            #gallery-preview,
+            #posts-preview,
+            #about-me-preview{
+                padding-left: 10px;
+                padding-right: 10px;
+                color: $active-link;
+            }
+
+            #welcome{
+
+                .image-container{
+                    margin-bottom: 20px;
+                    img{
+                        width: 100%
+                    }
+                }
+            }
+
+            #gallery-preview,
+            #albums,
+            #post{
+
+                padding-left: 0px;
+                padding-right: 0px;
+                .image-container{
+                    img{
+                        width: 100%
+                    }
+                }
+            }
+
+            #about-me-preview,
+            #about-me{
+
+                .profile-image-container{
+                    margin: 0px auto 20px;
+                    width: 250px;
+                    z-index: -1;
+
+                    #profile-img{
+                        border-radius: 50%;
+                        width: 100%;
+                        height: 250px;
+                    }
+                }
+            }
+        }  
+    }
+
+    #image-page,
+    #post-page{
+
+    #post-content{
+    margin-top: 20px;
+    margin-bottom: 5px;
+    }
+
+        .grid{
+            margin-bottom: 20px;
+        }
+
+        .card{
+            border: none;
+
+            .card-header{
+                border: none;
+                background-color: white;
+                padding: 0 10px ;
+                text-align: center;
+                a{
+                    color: $active-link;
+                    text-decoration: none;
+                }
+                
+            }
+        }
+
+    }
+
+/*(4) PAGE CONTENT END*/
+
+
+/*(5) BUTTONS START */
+    .btn-container{
+        .button{
+            display: block;
+            text-decoration: none;
+            width: 200px;
+            padding: 10px 5px;
+            margin: 20px auto 0;
+        }
+
+        .main-btn{
+            color: white;
+            background-color: $active-link;
+        }
+
+        .secondary-btn{
+            color: $active-link;
+            background-color: white;
+            border: 1px solid $active-link;
+        }
+    }
+/*(5) BUTTONS END */
+
+
+/*(6) POST AND GALLERY CARDS BEGIN */
+    .card-deck{
+        
+        .no-rl-padding{
+            padding-right: 0;
+            padding-left: 0;
+        }
+
+        .card{
+            border: none;
+
+            .card-img-top{
+                width: 100%;
+                border-radius: 0;
+            }
+
+            .card-block{
+                padding-bottom: 0;
+            }
+
+            .date-and-time{
+            font-size: 14px;
+                margin-bottom: 5px;
+            }
+
+            .album-title{
+                position: absolute;
+                width: 200px;
+                height: 40px;
+                bottom: 20px;
+                left: 0;
+                background-color: white;
+                color: $active-link;
+                text-align: center;
+                line-height: 40px;
+                border: 1px solid $active-link;
+            }
+        }
+
+        .post-split{
+            width: 30%;
+            border-color: lightgray;
+            margin: 20px auto;
+        }
+    }
+/*(6) POST AND GALLERY CARDS END */
+
+
+/*(7) POST.PHP PAGE BEGIN*/
+
+    .post-container{
+        padding-left: 10px;
+        padding-right: 10px;
+        .post-content{
+            text-align: justify;
+        }
+
+        .date-and-time{
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+    }
+
+#add-comment-form,
+.media{
+    h4{
+        display: block;
+        width: 100%;
+        padding-top: 20px;
+        margin-bottom: 20px;
+        color: white;
+    }
+
+    p{
+        display: block;
+    }
+}
+
+#add-comment-form{
+    max-width: 650px;
+    background-color: $active-link;
+    color: white;
+    padding: 0 10px 10px 10px;
+    text-align: left;
+    margin: 20px 10px 0;
+
+    #comment-name-input{
+    padding-top: 20px;
+    }
+
+    .form-group{
+        padding-left: 0;
+        padding-right: 0;
+        margin-bottom: 20px;
+        .form-control{
+            width: 100%;
+            border-radius: 0;
+        }
+    }
+
+
+
+}
+
+.media{
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    height: auto;
+    text-align: left;
+
+    .row{
+    margin-right: 0;
+    margin-left: 0;
+
+    .col-sm-12{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    }
+
+    h4{
+        padding-top: 0;
+    }
+
+
+    .date-and-time{
+        font-size: 14px;
+        margin-bottom: 0;
+    }
+
+}
+
+.post-split{
+        width: 30%;
+        border-color: lightgray;
+        margin: 20px auto;
+    }
+/*(7) POST.PHP PAGE END*/
+
+
+/*(8) ALBUM.PHP START */
+
+.grid{
+    position: relative;
+    margin-bottom: -20px;
+    height: auto;
+
+    .item {
+        display: block;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+        padding: 0 10px;
+
+        /* Next & previous buttons */
+        
+    }
+
+    .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 450px;
+            user-select: none;
+            -webkit-user-select: none;
+            text-decoration: none;
+        }
+
+        .prev{
+            left: 0;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            right: 0;
+        }
+
+    .item.muuri-hidden {
+        z-index: 0;
+    }
+
+    .item-content {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    img{
+        width: 100%;
+    }
+
+    .post-split{
+        width: 30%;
+        border-color: lightgray;
+        margin: 20px auto;
+    }
+    
+}
+
+/*(8) ALBUM.PHP END */
+
+
+
+
+.overlay{
+    display: none;
+    position: fixed;
+    z-index: 99;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: black;
+
+    .overlay-content {
+      position: relative;
+      margin: 0 auto;
+      padding: 0;
+      width: 95%;
+      max-width: 1200px;
+    }
+
+    .overlay-container{
+        display: none;
+        margin-bottom: 20px;
+        max-height: 450px;
+        img{
+            width: 100%
+        }
+    }
+
+    .column {
+        float: left;
+            width: 100px;
+            padding: 0 8px;
+
+        .demo{
+            width: 100%;
+        }
+    }
+
+    .close {
+        color: white;
+        position: absolute;
+        top: 10px;
+        right: 25px;
+        font-size: 35px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #999;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        width: 50%;
+        height: 450px;
+        user-select: none;
+        -webkit-user-select: none;
+        text-decoration: none;
+    }
+
+    .prev{
+        left: 0;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+        right: 0;
+    }
+
+    .mySlides {
+      display: none;
+    }
+
+    img.demo {
+      opacity: 0.6;
+    }
+
+    .active,
+    .demo:hover {
+      opacity: 1;
+    }
+
+    img.hover-shadow {
+      transition: 0.3s
+    }
+
+    .hover-shadow:hover {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+    }
+
+    .all-images{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        margin-bottom: 20px;
+        width: 3000px
+    }
+}
+
+
+
+.footer{
+    width: 100%;
+    height: 300px;
+    background-color: $active-link;
+    color: white;
+    margin-top: 20px;
+}
+
+@media only screen and (min-width: 1200px) {
+
+
+    .grid{
+
+      
+            .item {
+                width: calc(25% - 10px);
+            }
+       
+        
+        img{
+            max-width: 800px;
+            border-radius: 8px;
+        }
+    }
+}

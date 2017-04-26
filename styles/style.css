@@ -1,0 +1,594 @@
+ /*
+(1) VARIABLES
+(2) BODY AND HTML
+(3) NAVIGATION
+(4) PAGE CONTENT
+(5) BUTTONS
+(6) POST AND GALLERY CARDS
+(7) POST.PHP PAGE
+*/
+/*(1) VARIABLES START*/
+/*(1) VARIABLES END*/
+/*(2) BODY AND HTML START*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+body, html {
+  background-color: white;
+  z-index: -2; }
+
+/*(2) BODY AND HTML START*/
+/*(3) NAVIGATION START*/
+.nav-container {
+  position: fixed;
+  top: 0;
+  background-color: white;
+  color: #03113d;
+  width: 100%;
+  height: 75px;
+  border-bottom: 1px solid #03113D;
+  z-index: 99; }
+  .nav-container #my-logo h1 {
+    text-align: center;
+    line-height: 50px;
+    font-size: 1.7rem;
+    width: 200px;
+    height: 50px;
+    margin: 12px auto 0; }
+    .nav-container #my-logo h1 a {
+      text-decoration: none;
+      color: #03113d; }
+  .nav-container .nav-btn {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 3px;
+    top: 50%;
+    transform: translate(-40%, -40%); }
+    .nav-container .nav-btn .hamburger-container {
+      width: 20px;
+      height: 2px;
+      background-color: #03113d;
+      border-radius: 5px;
+      position: relative;
+      text-align: left;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); }
+      .nav-container .nav-btn .hamburger-container:before, .nav-container .nav-btn .hamburger-container:after {
+        content: '';
+        width: 100%;
+        height: 2px;
+        background-color: #03113d;
+        position: absolute;
+        border-radius: 5px; }
+      .nav-container .nav-btn .hamburger-container:before {
+        top: -6px; }
+      .nav-container .nav-btn .hamburger-container:after {
+        top: 6px; }
+  .nav-container .prev-page {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 10px;
+    top: 35%;
+    text-align: center;
+    color: #03113d; }
+  .nav-container .nav-content-container {
+    position: absolute;
+    top: 0;
+    left: -270px;
+    width: 270px;
+    height: 100vh;
+    border-right: 1px solid #03113d;
+    background-color: white;
+    transition: all 0.5s; }
+    .nav-container .nav-content-container.open {
+      left: 0; }
+    .nav-container .nav-content-container .nav-items-container {
+      position: absolute;
+      width: 100%;
+      top: 100px; }
+      .nav-container .nav-content-container .nav-items-container ul {
+        list-style-type: none;
+        border-top: 1px solid #03113d; }
+        .nav-container .nav-content-container .nav-items-container ul li a {
+          display: block;
+          padding: 15px 10px;
+          text-decoration: none;
+          color: #03113d;
+          border-bottom: 1px solid #03113d;
+          font-weight: bold;
+          text-transform: uppercase; }
+          .nav-container .nav-content-container .nav-items-container ul li a.active {
+            background-color: #03113d;
+            color: white; }
+    .nav-container .nav-content-container .social-nav-items-container {
+      position: absolute;
+      width: 100%;
+      bottom: 50px;
+      padding-left: 8px; }
+      .nav-container .nav-content-container .social-nav-items-container ul {
+        list-style-type: none; }
+        .nav-container .nav-content-container .social-nav-items-container ul li {
+          display: inline-block;
+          width: 23%; }
+          .nav-container .nav-content-container .social-nav-items-container ul li a {
+            display: block;
+            padding: 20px 10px;
+            text-align: center;
+            color: #03113d;
+            text-decoration: none; }
+            .nav-container .nav-content-container .social-nav-items-container ul li a img {
+              width: 100%; }
+
+/*(3) NAVIGATION END*/
+/*(4) PAGE CONTENT START*/
+#home .page-content,
+#posts-page .page-content,
+#post-page .page-content,
+#gallery-page .page-content,
+#about-page .page-content,
+#image-page .page-content {
+  margin-top: 95px; }
+  #home .page-content h3,
+  #posts-page .page-content h3,
+  #post-page .page-content h3,
+  #gallery-page .page-content h3,
+  #about-page .page-content h3,
+  #image-page .page-content h3 {
+    margin-bottom: 20px; }
+  #home .page-content #posts,
+  #home .page-content #albums,
+  #home .page-content #about-me,
+  #posts-page .page-content #posts,
+  #posts-page .page-content #albums,
+  #posts-page .page-content #about-me,
+  #post-page .page-content #posts,
+  #post-page .page-content #albums,
+  #post-page .page-content #about-me,
+  #gallery-page .page-content #posts,
+  #gallery-page .page-content #albums,
+  #gallery-page .page-content #about-me,
+  #about-page .page-content #posts,
+  #about-page .page-content #albums,
+  #about-page .page-content #about-me,
+  #image-page .page-content #posts,
+  #image-page .page-content #albums,
+  #image-page .page-content #about-me {
+    padding: 0 10px; }
+    #home .page-content #posts p,
+    #home .page-content #albums p,
+    #home .page-content #about-me p,
+    #posts-page .page-content #posts p,
+    #posts-page .page-content #albums p,
+    #posts-page .page-content #about-me p,
+    #post-page .page-content #posts p,
+    #post-page .page-content #albums p,
+    #post-page .page-content #about-me p,
+    #gallery-page .page-content #posts p,
+    #gallery-page .page-content #albums p,
+    #gallery-page .page-content #about-me p,
+    #about-page .page-content #posts p,
+    #about-page .page-content #albums p,
+    #about-page .page-content #about-me p,
+    #image-page .page-content #posts p,
+    #image-page .page-content #albums p,
+    #image-page .page-content #about-me p {
+      text-align: justify; }
+
+#home h3,
+#posts-page h3,
+#post-page h3,
+#gallery-page h3,
+#about-page h3,
+#image-page h3 {
+  text-transform: uppercase;
+  display: inline-block;
+  text-decoration: underline;
+  font-weight: bold;
+  color: #03113d; }
+#home h4,
+#posts-page h4,
+#post-page h4,
+#gallery-page h4,
+#about-page h4,
+#image-page h4 {
+  color: #03113d; }
+#home p,
+#posts-page p,
+#post-page p,
+#gallery-page p,
+#about-page p,
+#image-page p {
+  text-align: justify;
+  color: #03113d; }
+#home .page-content,
+#posts-page .page-content,
+#post-page .page-content,
+#gallery-page .page-content,
+#about-page .page-content,
+#image-page .page-content {
+  text-align: center; }
+  #home .page-content .section-split,
+  #posts-page .page-content .section-split,
+  #post-page .page-content .section-split,
+  #gallery-page .page-content .section-split,
+  #about-page .page-content .section-split,
+  #image-page .page-content .section-split {
+    width: 90%;
+    border-color: #03113d;
+    margin: 20px auto; }
+  #home .page-content #welcome,
+  #home .page-content #gallery-preview,
+  #home .page-content #posts-preview,
+  #home .page-content #about-me-preview,
+  #posts-page .page-content #welcome,
+  #posts-page .page-content #gallery-preview,
+  #posts-page .page-content #posts-preview,
+  #posts-page .page-content #about-me-preview,
+  #post-page .page-content #welcome,
+  #post-page .page-content #gallery-preview,
+  #post-page .page-content #posts-preview,
+  #post-page .page-content #about-me-preview,
+  #gallery-page .page-content #welcome,
+  #gallery-page .page-content #gallery-preview,
+  #gallery-page .page-content #posts-preview,
+  #gallery-page .page-content #about-me-preview,
+  #about-page .page-content #welcome,
+  #about-page .page-content #gallery-preview,
+  #about-page .page-content #posts-preview,
+  #about-page .page-content #about-me-preview,
+  #image-page .page-content #welcome,
+  #image-page .page-content #gallery-preview,
+  #image-page .page-content #posts-preview,
+  #image-page .page-content #about-me-preview {
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #03113d; }
+  #home .page-content #welcome .image-container,
+  #posts-page .page-content #welcome .image-container,
+  #post-page .page-content #welcome .image-container,
+  #gallery-page .page-content #welcome .image-container,
+  #about-page .page-content #welcome .image-container,
+  #image-page .page-content #welcome .image-container {
+    margin-bottom: 20px; }
+    #home .page-content #welcome .image-container img,
+    #posts-page .page-content #welcome .image-container img,
+    #post-page .page-content #welcome .image-container img,
+    #gallery-page .page-content #welcome .image-container img,
+    #about-page .page-content #welcome .image-container img,
+    #image-page .page-content #welcome .image-container img {
+      width: 100%; }
+  #home .page-content #gallery-preview,
+  #home .page-content #albums,
+  #home .page-content #post,
+  #posts-page .page-content #gallery-preview,
+  #posts-page .page-content #albums,
+  #posts-page .page-content #post,
+  #post-page .page-content #gallery-preview,
+  #post-page .page-content #albums,
+  #post-page .page-content #post,
+  #gallery-page .page-content #gallery-preview,
+  #gallery-page .page-content #albums,
+  #gallery-page .page-content #post,
+  #about-page .page-content #gallery-preview,
+  #about-page .page-content #albums,
+  #about-page .page-content #post,
+  #image-page .page-content #gallery-preview,
+  #image-page .page-content #albums,
+  #image-page .page-content #post {
+    padding-left: 0px;
+    padding-right: 0px; }
+    #home .page-content #gallery-preview .image-container img,
+    #home .page-content #albums .image-container img,
+    #home .page-content #post .image-container img,
+    #posts-page .page-content #gallery-preview .image-container img,
+    #posts-page .page-content #albums .image-container img,
+    #posts-page .page-content #post .image-container img,
+    #post-page .page-content #gallery-preview .image-container img,
+    #post-page .page-content #albums .image-container img,
+    #post-page .page-content #post .image-container img,
+    #gallery-page .page-content #gallery-preview .image-container img,
+    #gallery-page .page-content #albums .image-container img,
+    #gallery-page .page-content #post .image-container img,
+    #about-page .page-content #gallery-preview .image-container img,
+    #about-page .page-content #albums .image-container img,
+    #about-page .page-content #post .image-container img,
+    #image-page .page-content #gallery-preview .image-container img,
+    #image-page .page-content #albums .image-container img,
+    #image-page .page-content #post .image-container img {
+      width: 100%; }
+  #home .page-content #about-me-preview .profile-image-container,
+  #home .page-content #about-me .profile-image-container,
+  #posts-page .page-content #about-me-preview .profile-image-container,
+  #posts-page .page-content #about-me .profile-image-container,
+  #post-page .page-content #about-me-preview .profile-image-container,
+  #post-page .page-content #about-me .profile-image-container,
+  #gallery-page .page-content #about-me-preview .profile-image-container,
+  #gallery-page .page-content #about-me .profile-image-container,
+  #about-page .page-content #about-me-preview .profile-image-container,
+  #about-page .page-content #about-me .profile-image-container,
+  #image-page .page-content #about-me-preview .profile-image-container,
+  #image-page .page-content #about-me .profile-image-container {
+    margin: 0px auto 20px;
+    width: 250px;
+    z-index: -1; }
+    #home .page-content #about-me-preview .profile-image-container #profile-img,
+    #home .page-content #about-me .profile-image-container #profile-img,
+    #posts-page .page-content #about-me-preview .profile-image-container #profile-img,
+    #posts-page .page-content #about-me .profile-image-container #profile-img,
+    #post-page .page-content #about-me-preview .profile-image-container #profile-img,
+    #post-page .page-content #about-me .profile-image-container #profile-img,
+    #gallery-page .page-content #about-me-preview .profile-image-container #profile-img,
+    #gallery-page .page-content #about-me .profile-image-container #profile-img,
+    #about-page .page-content #about-me-preview .profile-image-container #profile-img,
+    #about-page .page-content #about-me .profile-image-container #profile-img,
+    #image-page .page-content #about-me-preview .profile-image-container #profile-img,
+    #image-page .page-content #about-me .profile-image-container #profile-img {
+      border-radius: 50%;
+      width: 100%;
+      height: 250px; }
+
+#image-page #post-content,
+#post-page #post-content {
+  margin-top: 20px;
+  margin-bottom: 5px; }
+#image-page .grid,
+#post-page .grid {
+  margin-bottom: 20px; }
+#image-page .card,
+#post-page .card {
+  border: none; }
+  #image-page .card .card-header,
+  #post-page .card .card-header {
+    border: none;
+    background-color: white;
+    padding: 0 10px;
+    text-align: center; }
+    #image-page .card .card-header a,
+    #post-page .card .card-header a {
+      color: #03113d;
+      text-decoration: none; }
+
+/*(4) PAGE CONTENT END*/
+/*(5) BUTTONS START */
+.btn-container .button {
+  display: block;
+  text-decoration: none;
+  width: 200px;
+  padding: 10px 5px;
+  margin: 20px auto 0; }
+.btn-container .main-btn {
+  color: white;
+  background-color: #03113d; }
+.btn-container .secondary-btn {
+  color: #03113d;
+  background-color: white;
+  border: 1px solid #03113d; }
+
+/*(5) BUTTONS END */
+/*(6) POST AND GALLERY CARDS BEGIN */
+.card-deck .no-rl-padding {
+  padding-right: 0;
+  padding-left: 0; }
+.card-deck .card {
+  border: none; }
+  .card-deck .card .card-img-top {
+    width: 100%;
+    border-radius: 0; }
+  .card-deck .card .card-block {
+    padding-bottom: 0; }
+  .card-deck .card .date-and-time {
+    font-size: 14px;
+    margin-bottom: 5px; }
+  .card-deck .card .album-title {
+    position: absolute;
+    width: 200px;
+    height: 40px;
+    bottom: 20px;
+    left: 0;
+    background-color: white;
+    color: #03113d;
+    text-align: center;
+    line-height: 40px;
+    border: 1px solid #03113d; }
+.card-deck .post-split {
+  width: 30%;
+  border-color: lightgray;
+  margin: 20px auto; }
+
+/*(6) POST AND GALLERY CARDS END */
+/*(7) POST.PHP PAGE BEGIN*/
+.post-container {
+  padding-left: 10px;
+  padding-right: 10px; }
+  .post-container .post-content {
+    text-align: justify; }
+  .post-container .date-and-time {
+    font-size: 14px;
+    margin-bottom: 5px; }
+
+#add-comment-form h4,
+.media h4 {
+  display: block;
+  width: 100%;
+  padding-top: 20px;
+  margin-bottom: 20px;
+  color: white; }
+#add-comment-form p,
+.media p {
+  display: block; }
+
+#add-comment-form {
+  max-width: 650px;
+  background-color: #03113d;
+  color: white;
+  padding: 0 10px 10px 10px;
+  text-align: left;
+  margin: 20px 10px 0; }
+  #add-comment-form #comment-name-input {
+    padding-top: 20px; }
+  #add-comment-form .form-group {
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 20px; }
+    #add-comment-form .form-group .form-control {
+      width: 100%;
+      border-radius: 0; }
+
+.media {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 10px;
+  height: auto;
+  text-align: left; }
+  .media .row {
+    margin-right: 0;
+    margin-left: 0; }
+    .media .row .col-sm-12 {
+      padding-left: 0;
+      padding-right: 0; }
+  .media h4 {
+    padding-top: 0; }
+  .media .date-and-time {
+    font-size: 14px;
+    margin-bottom: 0; }
+
+.post-split {
+  width: 30%;
+  border-color: lightgray;
+  margin: 20px auto; }
+
+/*(7) POST.PHP PAGE END*/
+/*(8) ALBUM.PHP START */
+.grid {
+  position: relative;
+  margin-bottom: -20px;
+  height: auto;
+  /* Position the "next button" to the right */ }
+  .grid .item {
+    display: block;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    padding: 0 10px;
+    /* Next & previous buttons */ }
+  .grid .prev,
+  .grid .next {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 450px;
+    user-select: none;
+    -webkit-user-select: none;
+    text-decoration: none; }
+  .grid .prev {
+    left: 0; }
+  .grid .next {
+    right: 0; }
+  .grid .item.muuri-hidden {
+    z-index: 0; }
+  .grid .item-content {
+    position: relative;
+    width: 100%;
+    height: 100%; }
+  .grid img {
+    width: 100%; }
+  .grid .post-split {
+    width: 30%;
+    border-color: lightgray;
+    margin: 20px auto; }
+
+/*(8) ALBUM.PHP END */
+.overlay {
+  display: none;
+  position: fixed;
+  z-index: 99;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+  /* Next & previous buttons */
+  /* Position the "next button" to the right */ }
+  .overlay .overlay-content {
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    width: 95%;
+    max-width: 1200px; }
+  .overlay .overlay-container {
+    display: none;
+    margin-bottom: 20px;
+    max-height: 450px; }
+    .overlay .overlay-container img {
+      width: 100%; }
+  .overlay .column {
+    float: left;
+    width: 100px;
+    padding: 0 8px; }
+    .overlay .column .demo {
+      width: 100%; }
+  .overlay .close {
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold; }
+  .overlay .close:hover,
+  .overlay .close:focus {
+    color: #999;
+    text-decoration: none;
+    cursor: pointer; }
+  .overlay .prev,
+  .overlay .next {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 450px;
+    user-select: none;
+    -webkit-user-select: none;
+    text-decoration: none; }
+  .overlay .prev {
+    left: 0; }
+  .overlay .next {
+    right: 0; }
+  .overlay .mySlides {
+    display: none; }
+  .overlay img.demo {
+    opacity: 0.6; }
+  .overlay .active,
+  .overlay .demo:hover {
+    opacity: 1; }
+  .overlay img.hover-shadow {
+    transition: 0.3s; }
+  .overlay .hover-shadow:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+  .overlay .all-images {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 20px;
+    width: 3000px; }
+
+.footer {
+  width: 100%;
+  height: 300px;
+  background-color: #03113d;
+  color: white;
+  margin-top: 20px; }
+
+@media only screen and (min-width: 1200px) {
+  .grid .item {
+    width: calc(25% - 10px); }
+  .grid img {
+    max-width: 800px;
+    border-radius: 8px; } }
